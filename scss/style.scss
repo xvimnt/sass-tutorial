@@ -1,16 +1,26 @@
 @mixin btn($col: #444) {
   background: $col;
-  border-radius: 5px;
   border: 0;
   border-radius: 5px;
   font-size: 1rem;
+  color: white;
+  padding: 0.7rem 0.9rem;
+  margin: 0.5em auto;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .btn {
   @include btn;
-}
+  border: 0;
 
-.btn-primary {
-  @include btn($col: #3ab5e9);
-  color: yellow;
+  &-primary {
+    @extend .btn;
+    background: #3ab5e9;
+  }
+
+  &-secondary {
+    @extend .btn;
+    background: orange;
+  }
 }
