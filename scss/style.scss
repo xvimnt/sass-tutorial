@@ -1,3 +1,10 @@
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 60px;
+}
+
 @mixin btn($col: #444) {
   background: $col;
   border: 0;
@@ -8,6 +15,9 @@
   margin: 0.5em auto;
   display: inline-block;
   cursor: pointer;
+  &:hover {
+    background: darken($col, 10%);
+  }
 }
 
 .btn {
@@ -17,6 +27,9 @@
   &-primary {
     @extend .btn;
     background: #3ab5e9;
+    &:hover {
+      background: #3aa5a9;
+    }
   }
 
   &-secondary {
@@ -26,18 +39,34 @@
 }
 
 // Challenge
-.msg {
+@mixin msg($col: #888) {
   border: 1px solid #ddd;
   border-radius: 5px;
-  background: #888;
+  background: $col;
   font-size: 1rem;
   color: white;
   padding: 1rem 1.25rem;
   margin: 1em 0;
+  border: 5px solid white;
+  border-radius: 2em;
   display: inline-block;
   cursor: pointer;
-
+  &:hover {
+    background: darken($col, 10%);
+  }
   h1 {
-    margin: 0 0 0 .2em 0;
+    font-size: 2rem;
+    margin: 2px;
+  }
+}
+
+.msg {
+  @include msg;
+
+  &-info {
+    background: #3ab5e9;
+    &:hover {
+      background: #3aa5a9;
+    }
   }
 }
