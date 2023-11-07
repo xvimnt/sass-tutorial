@@ -5,38 +5,23 @@ body {
   margin-top: 60px;
 }
 
-@mixin btn($col: #444) {
-  background: $col;
-  border: 0;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: white;
-  padding: 0.7rem 0.9rem;
-  margin: 0.5em auto;
-  display: inline-block;
-  cursor: pointer;
-  &:hover {
-    background: darken($col, 10%);
+@mixin btn($name: "", $bg: blue, $col: white) {
+  .btn#{$name} {
+    background: $bg;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: $col;
+    padding: 0.7rem 0.9rem;
+    margin: 0.5em auto;
+    display: inline-block;
+    cursor: pointer;
+    &:hover { background: darken($bg, 10%); } 
   }
 }
 
-.btn {
-  @include btn;
-  border: 0;
-
-  &-primary {
-    @extend .btn;
-    background: #3ab5e9;
-    &:hover {
-      background: #3aa5a9;
-    }
-  }
-
-  &-secondary {
-    @extend .btn;
-    background: orange;
-  }
-}
+@include btn;
+@include btn("-primary", green);
 
 // Challenge
 @mixin msg($col: #888) {
